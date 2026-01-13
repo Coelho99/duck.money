@@ -110,6 +110,15 @@
   <img src="pato.png" alt="Pato de borracha usando óculos com cifrão" class="pato">
 
   <div class="texto">
+    <div id="contador" style="
+  margin-top: 25px;
+  text-align: center;
+  font-size: 18px;
+  color: #222;
+">
+  👀 Visitas: <strong><span id="visitas">0</span></strong><br>
+  💰 Lucro estimado: <strong>R$ <span id="lucro">0.00</span></strong>
+</div>
     <p><strong>Bem-vindo ao Pato do Lucro 🦆</strong></p>
 
     <p>
@@ -160,6 +169,31 @@
       }
     });
   </script>
+  <script>
+  // -------- CONTADOR DE VISITAS --------
+  let visitas = localStorage.getItem('visitas');
+  visitas = visitas ? parseInt(visitas) + 1 : 1;
+  localStorage.setItem('visitas', visitas);
 
-</body>
-</html>
+  document.getElementById('visitas').innerText = visitas;
+
+  // lucro fictício (exemplo: R$0,001 por visita)
+  const lucro = (visitas * 0.001).toFixed(2);
+  document.getElementById('lucro').innerText = lucro;
+
+  // -------- INTERAÇÃO COM O PATO --------
+  const pato = document.querySelector('.pato');
+  let cliques = 0;
+
+  pato.addEventListener('click', () => {
+    cliques++;
+    pato.style.transform = 'scale(1.05)';
+    setTimeout(() => pato.style.transform = 'scale(1)', 150);
+
+    if (cliques === 5) {
+      alert('O pato sentiu o cheiro do dinheiro 🦆💸');
+    }
+  });
+</script>
+
+
