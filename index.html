@@ -105,7 +105,7 @@
        data-ad-format="auto"></ins>
   -->
 
-  <div class="balao" id="balao">...</div>
+  <div class="balao" id="balao"></div>
 
   <img src="pato.png" alt="Pato de borracha usando óculos com cifrão" class="pato">
 
@@ -170,54 +170,62 @@
     });
   </script>
  <script>
-  // -------- FRASES VIRAIS --------
-  const frases = [
-    "Pronto para lucrar?",
-    "Cada visita vale dinheiro 🦆💰",
-    "Não clique. Só observe.",
-    "Esse pato não é tão inocente.",
-    "A internet paga coisas estranhas.",
-    "Você ainda está aqui?",
-    "O pato agradece sua atenção.",
-    "Quanto tempo você aguenta ficar?",
-    "Alguém já lucrou com menos?",
-    "Isso é só um experimento..."
-  ];
+  document.addEventListener("DOMContentLoaded", function () {
 
-  const balao = document.getElementById('balao');
+    // -------- FRASES --------
+    const frases = [
+      "Pronto para lucrar?",
+      "Não clique. Só observe.",
+      "Cada visita vale dinheiro 🦆💰",
+      "Esse pato não é tão inocente.",
+      "Você ainda está aqui?",
+      "Atenção gera valor.",
+      "O pato agradece sua curiosidade.",
+      "Isso é só um experimento...",
+      "Quanto tempo você aguenta ficar?",
+      "A internet paga coisas estranhas."
+    ];
 
-  function fraseAleatoria() {
-    const index = Math.floor(Math.random() * frases.length);
-    balao.innerText = frases[index];
-  }
+    const balao = document.getElementById("balao");
+    const pato = document.querySelector(".pato");
 
-  fraseAleatoria();
+    function fraseAleatoria() {
+      const index = Math.floor(Math.random() * frases.length);
+      balao.innerText = frases[index];
+    }
 
-  // -------- CONTADOR DE VISITAS --------
-  let visitas = localStorage.getItem('visitas');
-  visitas = visitas ? parseInt(visitas) + 1 : 1;
-  localStorage.setItem('visitas', visitas);
-  document.getElementById('visitas').innerText = visitas;
-
-  const lucro = (visitas * 0.001).toFixed(2);
-  document.getElementById('lucro').innerText = lucro;
-
-  // -------- INTERAÇÃO COM O PATO --------
-  const pato = document.querySelector('.pato');
-  let cliques = 0;
-
-  pato.addEventListener('click', () => {
-    cliques++;
+    // frase inicial
     fraseAleatoria();
 
-    pato.style.transform = 'scale(1.06)';
-    setTimeout(() => pato.style.transform = 'scale(1)', 150);
+    // -------- CONTADOR --------
+    let visitas = localStorage.getItem("visitas");
+    visitas = visitas ? parseInt(visitas) + 1 : 1;
+    localStorage.setItem("visitas", visitas);
 
-    if (cliques === 5) {
-      alert("O pato percebeu sua curiosidade 🦆👀");
-    }
+    document.getElementById("visitas").innerText = visitas;
+
+    const lucro = (visitas * 0.001).toFixed(2);
+    document.getElementById("lucro").innerText = lucro;
+
+    // -------- CLIQUE NO PATO --------
+    let cliques = 0;
+
+    pato.addEventListener("click", function () {
+      cliques++;
+      fraseAleatoria();
+
+      pato.style.transform = "scale(1.06)";
+      setTimeout(() => pato.style.transform = "scale(1)", 150);
+
+      if (cliques === 5) {
+        alert("O pato percebeu sua atenção 🦆👀");
+      }
+    });
+
   });
 </script>
+
+
 
 
 
