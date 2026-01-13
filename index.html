@@ -105,7 +105,7 @@
        data-ad-format="auto"></ins>
   -->
 
-  <div class="balao">Pronto para lucrar?</div>
+  <div class="balao" id="balao">...</div>
 
   <img src="pato.png" alt="Pato de borracha usando óculos com cifrão" class="pato">
 
@@ -169,15 +169,36 @@
       }
     });
   </script>
-  <script>
+ <script>
+  // -------- FRASES VIRAIS --------
+  const frases = [
+    "Pronto para lucrar?",
+    "Cada visita vale dinheiro 🦆💰",
+    "Não clique. Só observe.",
+    "Esse pato não é tão inocente.",
+    "A internet paga coisas estranhas.",
+    "Você ainda está aqui?",
+    "O pato agradece sua atenção.",
+    "Quanto tempo você aguenta ficar?",
+    "Alguém já lucrou com menos?",
+    "Isso é só um experimento..."
+  ];
+
+  const balao = document.getElementById('balao');
+
+  function fraseAleatoria() {
+    const index = Math.floor(Math.random() * frases.length);
+    balao.innerText = frases[index];
+  }
+
+  fraseAleatoria();
+
   // -------- CONTADOR DE VISITAS --------
   let visitas = localStorage.getItem('visitas');
   visitas = visitas ? parseInt(visitas) + 1 : 1;
   localStorage.setItem('visitas', visitas);
-
   document.getElementById('visitas').innerText = visitas;
 
-  // lucro fictício (exemplo: R$0,001 por visita)
   const lucro = (visitas * 0.001).toFixed(2);
   document.getElementById('lucro').innerText = lucro;
 
@@ -187,13 +208,17 @@
 
   pato.addEventListener('click', () => {
     cliques++;
-    pato.style.transform = 'scale(1.05)';
+    fraseAleatoria();
+
+    pato.style.transform = 'scale(1.06)';
     setTimeout(() => pato.style.transform = 'scale(1)', 150);
 
     if (cliques === 5) {
-      alert('O pato sentiu o cheiro do dinheiro 🦆💸');
+      alert("O pato percebeu sua curiosidade 🦆👀");
     }
   });
 </script>
+
+
 
 
