@@ -5,9 +5,9 @@
   <title>Pato do Lucro</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Um pato estiloso pronto para lucrar. Você também está?">
+  <meta name="description" content="O Pato do Lucro é um experimento criativo sobre atenção, internet e monetização.">
 
-  <!-- 🔹 AQUI ENTRA O CÓDIGO DO GOOGLE ADSENSE (quando aprovado) -->
+  <!-- 🔹 GOOGLE ADSENSE (colar aqui quando for aprovado) -->
   <!--
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   -->
@@ -16,21 +16,22 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: white;
+      background: #ffffff;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
+      padding: 20px;
+      box-sizing: border-box;
     }
 
-    /* Balão de fala */
     .balao {
       position: relative;
       background: #f2f8ff;
       border: 3px solid #8bbcff;
       border-radius: 20px;
-      padding: 15px 25px;
+      padding: 16px 28px;
       font-size: 22px;
       font-weight: bold;
       color: #003366;
@@ -49,20 +50,19 @@
       border-color: #8bbcff transparent transparent;
     }
 
-    /* Pato */
     .pato {
       width: 260px;
       animation: subir 1.2s ease-out;
       cursor: pointer;
     }
 
-    /* Texto explicativo */
     .texto {
-      max-width: 600px;
+      max-width: 700px;
       text-align: center;
       margin-top: 30px;
       font-size: 16px;
       color: #444;
+      line-height: 1.6;
     }
 
     footer {
@@ -73,10 +73,9 @@
     footer a {
       color: #0066cc;
       text-decoration: none;
-      margin: 0 10px;
+      margin: 0 12px;
     }
 
-    /* Animações */
     @keyframes subir {
       from {
         transform: translateY(60px);
@@ -97,7 +96,7 @@
 
 <body>
 
-  <!-- 🔹 ANÚNCIO SUPERIOR -->
+  <!-- 🔹 ANÚNCIO SUPERIOR (quando aprovado) -->
   <!--
   <ins class="adsbygoogle"
        style="display:block"
@@ -108,15 +107,32 @@
 
   <div class="balao">Pronto para lucrar?</div>
 
-  <img src="pato.png" alt="Pato do lucro" class="pato">
+  <img src="pato.png" alt="Pato de borracha usando óculos com cifrão" class="pato">
 
   <div class="texto">
-    Este site não vende nada.<br>
-    Ele existe para provar que atenção vale dinheiro.<br><br>
-    Quanto mais pessoas visitam, mais o pato lucra 🦆💰
+    <p><strong>Bem-vindo ao Pato do Lucro 🦆</strong></p>
+
+    <p>
+      Este site é um experimento criativo sobre como a atenção na internet
+      pode gerar valor.
+    </p>
+
+    <p>
+      Aqui não vendemos produtos, não prometemos ganhos
+      e não coletamos dados pessoais.
+    </p>
+
+    <p>
+      O projeto é mantido por anúncios exibidos de forma automática.
+      Se você está aqui, já faz parte do experimento 🙂
+    </p>
+
+    <p>
+      Fique à vontade, observe o pato e aproveite a visita.
+    </p>
   </div>
 
-  <!-- 🔹 ANÚNCIO INFERIOR -->
+  <!-- 🔹 ANÚNCIO INFERIOR (quando aprovado) -->
   <!--
   <ins class="adsbygoogle"
        style="display:block"
@@ -126,8 +142,24 @@
   -->
 
   <footer>
+    <a href="sobre.html">Sobre</a>
     <a href="privacidade.html">Política de Privacidade</a>
   </footer>
+
+  <script>
+    const pato = document.querySelector('.pato');
+    let cliques = 0;
+
+    pato.addEventListener('click', () => {
+      cliques++;
+      pato.style.transform = 'scale(1.05)';
+      setTimeout(() => pato.style.transform = 'scale(1)', 150);
+
+      if (cliques === 5) {
+        alert('O pato está começando a lucrar 🦆💰');
+      }
+    });
+  </script>
 
 </body>
 </html>
