@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Pato do Lucro</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Um pato estiloso pronto para lucrar. Você também está?">
+
+  <!-- 🔹 AQUI ENTRA O CÓDIGO DO GOOGLE ADSENSE (quando aprovado) -->
+  <!--
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  -->
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    /* Balão de fala */
+    .balao {
+      position: relative;
+      background: #f2f8ff;
+      border: 3px solid #8bbcff;
+      border-radius: 20px;
+      padding: 15px 25px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #003366;
+      margin-bottom: 20px;
+      animation: aparecer 1s ease-out;
+    }
+
+    .balao::after {
+      content: "";
+      position: absolute;
+      bottom: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 18px 14px 0;
+      border-style: solid;
+      border-color: #8bbcff transparent transparent;
+    }
+
+    /* Pato */
+    .pato {
+      width: 260px;
+      animation: subir 1.2s ease-out;
+      cursor: pointer;
+    }
+
+    /* Texto explicativo */
+    .texto {
+      max-width: 600px;
+      text-align: center;
+      margin-top: 30px;
+      font-size: 16px;
+      color: #444;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #0066cc;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    /* Animações */
+    @keyframes subir {
+      from {
+        transform: translateY(60px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🔹 ANÚNCIO SUPERIOR -->
+  <!--
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXX"
+       data-ad-slot="YYYYYYYY"
+       data-ad-format="auto"></ins>
+  -->
+
+  <div class="balao">Pronto para lucrar?</div>
+
+  <img src="pato.png" alt="Pato do lucro" class="pato">
+
+  <div class="texto">
+    Este site não vende nada.<br>
+    Ele existe para provar que atenção vale dinheiro.<br><br>
+    Quanto mais pessoas visitam, mais o pato lucra 🦆💰
+  </div>
+
+  <!-- 🔹 ANÚNCIO INFERIOR -->
+  <!--
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXX"
+       data-ad-slot="YYYYYYYY"
+       data-ad-format="auto"></ins>
+  -->
+
+  <footer>
+    <a href="privacidade.html">Política de Privacidade</a>
+  </footer>
+
+</body>
+</html>
